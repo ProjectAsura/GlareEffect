@@ -493,15 +493,15 @@ void SampleApplication::OnFrameRender( double time, double elapsedTime )
             m_PingPong[9].GetSRV(),
             m_PingPong[11].GetSRV()
         };
-        m_pDeviceContext->PSSetShaderResources( 0, 6, pSRV );
+        m_pDeviceContext->PSSetShaderResources( 0, 7, pSRV );
         m_pDeviceContext->PSSetSamplers( 0, 1, &m_pLinearSampler );
 
         // 描画.
         m_Quad.Draw(m_pDeviceContext);
 
         // シェーダリソースをクリア.
-        ID3D11ShaderResourceView* nullTarget[] = { nullptr, nullptr, nullptr, nullptr, nullptr };
-        m_pDeviceContext->PSSetShaderResources( 0, 5, nullTarget );
+        ID3D11ShaderResourceView* nullTarget[] = { nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr };
+        m_pDeviceContext->PSSetShaderResources( 0, 7, nullTarget );
 
         // テキストを描画.
         OnDrawText();
